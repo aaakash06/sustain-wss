@@ -1,5 +1,5 @@
 import WebSocket from "ws";
-const http = require("http");
+import { createServer } from "http";
 const WSS = "wss://hamro-chess-1.onrender.com";
 const socket = new WebSocket(WSS);
 socket.onopen = () => {
@@ -16,7 +16,7 @@ setInterval(() => {
   };
 }, timeInterval);
 
-const server = http.createServer();
+const server = createServer();
 server.listen(3000, () => {
   console.log("server is listening");
 });
