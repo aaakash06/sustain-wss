@@ -17,6 +17,10 @@ setInterval(() => {
 }, timeInterval);
 
 const server = createServer();
-server.listen(3000, () => {
+
+server.addListener("close", () => {
+  console.log("server is dying");
+});
+server.listen(8080, () => {
   console.log("server is listening");
 });
